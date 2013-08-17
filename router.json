@@ -1,0 +1,34 @@
+{
+    "index": [
+        "GET",
+        "/"
+    ],
+    "getPosts": [
+        "GET",
+        "/api/posts"
+    ],
+    "getPostPagination":[
+        "GET",
+        "/api/posts/page/:page"
+    ],
+    "getPost": [
+        "GET",
+        "/api/post/:id"
+    ],
+    "addPost": [
+        "POST",
+        "/api/post"
+    ],
+    "getComments": [
+        "GET",
+        "/api/post/:id/comments/page/:page"
+    ],
+    "addComment":[
+        "POST",
+        "/api/comment"
+    ],
+    "getCategories": [
+        "GET",
+        "/api/categories"
+    ]
+}
