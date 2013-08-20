@@ -1,12 +1,12 @@
 var mongodb = require('../db/db.js');
-function Post(title,user,content,category){
+function Post(title,user,content,category,tags){
 	this.title = title;
     this.browsed = 0;
 	this.user = user;
 	this.content = content;
 	this.time =  new Date();
     this.category = category;
-   
+    this.tags = tags;
 };
 
 module.exports = Post;
@@ -17,7 +17,8 @@ var postSchema = mongodb.mongoose.Schema({
     content:String,
     browsed:Number,
     time: Date,
-    category:String
+    category:String,
+    tags:String
 },{collection:"post"});
 mongodb.db.model('post', postSchema);
 /*
@@ -31,7 +32,8 @@ Post.prototype.save = function save(callback){
            content:this.content,
            browsed:this.browsed,
            time:this.time ,
-           category:this.category
+           category:this.category,
+           tags:this.tags
        }) ;
     post.save(function(err,post){
             callback(err,post);

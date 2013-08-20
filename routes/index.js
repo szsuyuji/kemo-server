@@ -67,7 +67,8 @@ exports.addPost = function(req,res){
   var post = req.body['post'];
   var title = req.body['title'];
   var category = req.body['category'];
-  var p = new Post(title,"suyuji",post,category);
+  var tags = req.body['tags'];
+  var p = new Post(title,"suyuji",post,category,tags);
   p.save(function(err,post){
   if(err){
      res.json({
