@@ -15,7 +15,7 @@ mongoose.Model.paginate = function(opts, callback) {
     var fields = opts.fields||null;
     var Model = this;
     //总数
-    Model.count(function (err, totalRecords) {
+    Model.count(query,function (err, totalRecords) {
         Model.find(query,fields,{sort:sort,limit:limit,skip:(page - 1) * limit},function(err,docs) {
             if (err) return callback(err);
             var  records = {docs:docs,totalRecords:totalRecords,currentPage:page,totalPages:Math.ceil(totalRecords / limit)};
